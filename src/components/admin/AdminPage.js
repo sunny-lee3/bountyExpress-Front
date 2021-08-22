@@ -1,13 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
+import axios from 'axios';
 
 import { FilledInput } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+
+
+import { useAuth0 } from '@auth0/auth0-react';
 
 import './GuildMaster.css'
 
 
 
+
 export default function AdminPage(){
+
+const { isAuthenticated, getIdTokenClaims } = useAuth0();
+const [email, setEmail] = useState();
+const [password, setPassword] = useState(); 
+const [userCreate, setUserCreate] = useState();
+
 
 const signUpForm = {
     display: 'flex',
@@ -60,6 +71,42 @@ const mainBackground ={
     background: "url('https://acegif.com/wp-content/gif/outerspace-6.gif') no-repeat",
     backgroundSize:'100%',
     backgroundAttachment: 'fixed'
+}
+
+
+
+function handleSubmit(){
+    if(isAuthenticated){
+        getIdTokenClaims()
+        .then((res) => {
+            const jwt = res.__raw;
+            const config ={
+                headers :{Authorization: `Bearer ${jwt}`},
+                method: "POST",
+                url: "https://dev-b086be-1.us.auth0.com/dbconnections/signup",
+                body:{
+                    client_id: "fnpUrVSJZ3Vh2ENmn3w4iudtiRGlptS0",
+                    email: "sunny.lee69love@gmail.com",
+                    password: "qazwesxewd12344KJKjk.",
+                    connection: "Bounties",
+                    picture: "",
+                    use_metadata: {
+                        capability: ""
+                    }
+                }
+            }
+            axios(config)
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.error(err)
+            })
+        })
+        .catch((err) => {
+            console.error(err)
+        })
+    }
 }
 
     return(
@@ -135,7 +182,31 @@ const mainBackground ={
                                     >
                                     </FilledInput>
                                 </div>
-                                <Button>Create User</Button> 
+
+                                <div>
+                                    <p style={{
+                                        color:'white',
+                                        marginTop: '2vh',
+                                        
+                                        }}>
+                                    User's Capability
+                                    </p> 
+                                    <FilledInput 
+                                        label="userCap"
+                                        id="Capability"
+                                        style={{
+                                            borderColor:'white', 
+                                            borderStyle:'solid',
+                                            borderWidth:'2px', 
+                                            marginTop: '2vh'
+                                        }}
+                                        color="secondary"
+                                        type="text"
+                                    >
+                                    </FilledInput>
+                                </div>
+
+                                <Button onClick={handleSubmit} color='secondary' >Create User</Button> 
                                 <div>
                                     <FilledInput
                                         style={styleFormBox}
