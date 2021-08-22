@@ -41,7 +41,7 @@ export default function BountyNav() {
       <nav
         className="navbar"
         style={{
-          backgroundColor: scrollState === "top" ? "#f3f0eb" : "white",
+          backgroundColor: scrollState === "top" ? "rgba(0,0,0,0.9)" : "rgba(0,0,0,0.6)",
           position: "fixed",
           zIndex: 10,
         }}

@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import './GuildMaster.css'
 
 
+
 export default function AdminPage(){
 
 const signUpForm = {
@@ -17,9 +18,10 @@ const signUpForm = {
 
 const style = {
 
+
 }
 const FORM ={
-    backgroundColor:'rgba(255,255,188,0.7)',
+    backgroundColor:'rgba(0,0,0,0.6)',
     borderWidth: '3px',
     borderColor: 'black',
     borderStyle: 'solid',
@@ -30,16 +32,17 @@ const FORM ={
 }
 const styleFormBox ={
     borderWidth: '3px',
-    borderColor: 'black',
+    borderColor: 'white',
     borderStyle: 'solid',
     borderRadius:'8px',
     width: '40vh',
     height: '25vh',
-    marginTop:'9vh'
+    marginTop:'9vh',
+    color: 'white'
 }
 
 const secondScreen={
-    backgroundColor:'rgba(255,255,188,0.7)',
+    backgroundColor:'rgba(0,0,0,0.6)',
     borderWidth: '3px',
     borderColor: 'black',
     borderStyle: 'solid',
@@ -55,7 +58,8 @@ const headingGuild={
 }
 const mainBackground ={
     background: "url('https://acegif.com/wp-content/gif/outerspace-6.gif') no-repeat",
-    backgroundSize:'100%'
+    backgroundSize:'100%',
+    backgroundAttachment: 'fixed'
 }
 
     return(
@@ -63,7 +67,7 @@ const mainBackground ={
             <main style={mainBackground}>
 
                 <div style={headingGuild} className="adminPageHeading">
-                    <div style={{backgroundColor:"black"}}>
+                    <div style={{ backgroundColor:"black"}}>
                     <h2 
                     id="GuildMasterTitle"> 
                         Welcome, Guild Master
@@ -89,26 +93,43 @@ const mainBackground ={
                         <div style={signUpForm} id="signUpAuth0-form">
                             <form style={style}>
                                 <div>
-                                    <p style={{marginTop: '2vh'}}>
+                                    <p style={{
+                                        color:'white',
+                                        marginTop: '2vh'
+                                        }}>
                                     User's Email
                                     </p>
                                     <FilledInput 
                                         type="email"
                                         label="userEmail"
                                         id="Admin-userEmail"
-                                        style={{marginTop: '2vh'}}
+                                        style={{
+                                            borderColor:'white', 
+                                            borderStyle:'solid',
+                                            borderWidth:'2px', 
+                                            marginTop: '2vh'
+                                        }}
                                     >
                                     </FilledInput>
                                 </div>
 
                                 <div>
-                                    <p style={{marginTop: '2vh'}}>
+                                    <p style={{
+                                        color:'white',
+                                        marginTop: '2vh',
+                                        
+                                        }}>
                                     User's Password
                                     </p> 
                                     <FilledInput 
                                         label="userPassword"
                                         id="Admin-Password"
-                                        style={{marginTop: '2vh'}}
+                                        style={{
+                                            borderColor:'white', 
+                                            borderStyle:'solid',
+                                            borderWidth:'2px', 
+                                            marginTop: '2vh'
+                                        }}
                                         color="secondary"
                                         type="password"
                                     >
@@ -120,7 +141,7 @@ const mainBackground ={
                                         style={styleFormBox}
                                         label="AdminUserResponse"
                                         id="adminResponse"
-                                        placeholder="This will be a request console log for the user to see"
+                                        value="This is a response"
                                         disabled
                                     />
                                 </div>
