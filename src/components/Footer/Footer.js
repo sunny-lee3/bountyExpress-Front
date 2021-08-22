@@ -7,8 +7,8 @@ export default function Footer() {
       <div className="container">
         <div style={{textAlign: "center", padding: "20px"}}>
           <p style={{ fontSize: "15px" }}>
-            bountysquad.org © 2021 All rights reserved - Authors / Cullen Sharp,
-            Sunny Lee, Louis Lassgeue, Tek Jones
+            Bounty © 2021 All rights reserved - Authors / Cullen Sharp,
+            Sunny Lee, Louis Lassgeue, Tek Jones - Continuation v1Sunny
           </p>
         </div>
       </div>

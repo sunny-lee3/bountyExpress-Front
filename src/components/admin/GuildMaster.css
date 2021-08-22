@@ -40,6 +40,7 @@
     height: 75px;
     line-height: 75px;
 }
+
 #GuildMasterTitle:after,
 #GuildMasterTitle:before {
     content: '';
@@ -77,7 +78,7 @@
     background: var(--shadow-primary);
     text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
     clip-path: var(--clip);
-    animation: glitch 20s infinite;
+    animation: glitch 7s infinite;
 }
 .masterTitle__glitch:before{
     content: '';
